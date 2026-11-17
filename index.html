@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#21463a">
+<title>Різдвяний лайв — регламент</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap">
+<style>
+:root{--bg:#f4efe4;--paper:#fffdf8;--ink:#1d2621;--muted:#6f726b;--faint:#a19e94;--line:#e3dac8;--line2:#efe8da;--green:#2c5a45;--green-d:#21463a;--gold:#d2a23e;--shadow:0 1px 2px rgba(40,30,10,.05),0 10px 28px -14px rgba(40,30,10,.22)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:Manrope,system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased}
+button,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+.ic{display:block;flex-shrink:0}
+
+/* header */
+.hero{background:var(--green-d);color:#f6efe0;padding:22px 20px 0;padding-top:max(22px,env(safe-area-inset-top))}
+.hero-in{max-width:760px;margin:0 auto}
+.album{display:flex;align-items:center;gap:10px;font-family:"Playfair Display",serif;font-size:22px;font-weight:600;letter-spacing:.2px}
+.album .ic{color:var(--gold)}
+.tabs-wrap{position:sticky;top:0;z-index:5;background:var(--green-d);box-shadow:0 6px 18px -12px rgba(0,0,0,.5)}
+.tabs{max-width:760px;margin:0 auto;display:flex;gap:8px;overflow-x:auto;padding:16px 20px 14px;scrollbar-width:none;scroll-snap-type:x proximity}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex-shrink:0;scroll-snap-align:start;display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:#efe6d3;border-radius:14px;padding:8px 14px 8px 8px;text-align:left;transition:background .15s,border-color .15s}
+.tab:hover{background:rgba(255,255,255,.12)}
+.tab .n{width:26px;height:26px;border-radius:9px;display:grid;place-items:center;background:rgba(255,255,255,.1);font-weight:800;font-size:12.5px}
+.tab .t{font-weight:700;font-size:13.5px;white-space:nowrap;max-width:190px;overflow:hidden;text-overflow:ellipsis}
+.tab .l{font-size:11.5px;opacity:.65}
+.tab .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);margin-left:2px}
+.tab.on{background:#f6efe0;border-color:#f6efe0;color:var(--green-d)}
+.tab.on .n{background:var(--gold);color:#2b2210}
+
+main{max-width:760px;margin:0 auto;padding:26px 20px 60px}
+.song-title{font-family:"Playfair Display",serif;font-size:32px;line-height:1.12;font-weight:600;margin:0 0 14px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.pill{display:inline-flex;align-items:center;gap:7px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:6px 13px 6px 10px;font-weight:700;font-size:13.5px}
+.pill .ic{color:var(--green)}
+.pill small{font-weight:600;color:var(--muted);font-size:12px}
+.pill.q{color:var(--faint)}
+.callout{display:flex;gap:10px;background:#f8eed4;border:1px solid #ecdcae;color:#5e4a19;border-radius:14px;padding:11px 14px;font-size:13.5px;margin-bottom:18px}
+.callout .ic{margin-top:2px;color:#b58a28}
+
+/* structure strip */
+.strip{display:flex;gap:3px;height:12px;margin:6px 0 24px}
+.strip button{border:0;padding:0;border-radius:4px;min-width:6px;opacity:.9;transition:opacity .15s,transform .15s}
+.strip button:hover{opacity:1;transform:scaleY(1.35)}
+
+/* sections */
+.secs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.sec{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;scroll-margin-top:90px}
+.sec::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--c)}
+.sec-head{display:flex;align-items:center;gap:12px;padding:13px 14px 13px 18px}
+.num{width:24px;font-weight:800;font-size:12.5px;color:var(--faint);text-align:center;flex-shrink:0}
+.badge{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 14%,transparent);color:var(--c);flex-shrink:0}
+.sec-main{flex:1;min-width:0}
+.sec-name{font-weight:800;font-size:15.5px}
+.sec-chords{color:var(--muted);font-size:13.5px;margin-top:1px}
+.bars{flex-shrink:0;font-size:12.5px;font-weight:700;color:var(--muted);background:var(--line2);border-radius:999px;padding:3px 10px}
+.note-btn{flex-shrink:0;width:36px;height:36px;border-radius:11px;border:1px solid transparent;background:transparent;color:var(--faint);display:grid;place-items:center;transition:background .15s,color .15s}
+.note-btn:hover{background:var(--line2);color:var(--ink)}
+.note-btn.has{color:var(--gold)}
+.insts{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 13px 88px;margin-top:-4px}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:700;border-radius:999px;padding:3px 10px 3px 7px;background:color-mix(in srgb,var(--ic) 11%,transparent);color:var(--ic)}
+.chip.in{background:var(--ic);color:#fff}
+.chip.out{background:transparent;color:var(--faint);text-decoration:line-through;border:1px dashed var(--line)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin:-12px 0 18px;font-size:12px;color:var(--muted);font-weight:600}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:18px;height:10px;border-radius:999px;display:inline-block}
+.mynote{border-top:1px dashed var(--line);background:#fffaf0;padding:10px 16px 12px 88px;display:none}
+.sec.open .mynote,.sec.hasnote .mynote{display:block}
+.mynote label{display:flex;align-items:center;gap:6px;font-size:11.5px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:#a07d2a;margin-bottom:4px}
+.mynote textarea{width:100%;border:0;background:transparent;resize:none;padding:0;min-height:24px;font-size:14.5px;line-height:1.45;outline:none;overflow:hidden}
+.mynote textarea::placeholder{color:var(--faint)}
+.saved{margin-left:auto;font-weight:700;text-transform:none;letter-spacing:0;color:var(--green);opacity:0;transition:opacity .3s}
+.saved.show{opacity:1}
+
+.next{margin-top:26px;display:flex;justify-content:space-between;gap:10px}
+.next button{display:flex;align-items:center;gap:8px;background:transparent;border:1px solid var(--line);border-radius:14px;padding:10px 14px;color:var(--ink);font-weight:700;font-size:13.5px;max-width:48%;text-align:left}
+.next button:hover{background:var(--paper)}
+.next button span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.next small{display:block;font-size:11.5px;color:var(--muted);font-weight:600}
+.next .r{margin-left:auto;text-align:right}
+.foot{text-align:center;color:var(--faint);font-size:12px;margin-top:34px}
+
+@media (min-width:820px){.tabs{flex-wrap:wrap}}
+@media (max-width:560px){
+ .hero{padding-left:16px;padding-right:16px}
+ .album{font-size:19px}
+ .tabs{padding-left:16px;padding-right:16px}
+ main{padding:22px 14px 50px}
+ .song-title{font-size:27px}
+ .sec-head{gap:10px;padding:12px 10px 12px 14px}
+ .num{display:none}
+ .badge{width:30px;height:30px;border-radius:10px}
+ .insts,.mynote{padding-left:56px}
+}
+</style>
+</head>
+<body>
+<header class="hero"><div class="hero-in"><div class="album" id="album"></div></div></header>
+<nav class="tabs-wrap"><div class="tabs" id="tabs"></div></nav>
+<main id="main"></main>
+
+<script id="data" type="application/json">{"album": "Різдвяний міні-альбом · лайв-запис", "custom": [{"id": "c-wagzrqa", "name": "Глокеншпіль", "color": "#7a5a9a"}], "songs": [{"title": "Jesus We Love You/High King Of Heaven", "lead": "Мері", "key": "C", "bpm": "104", "sig": "3/4", "notes": "", "sections": [{"id": "nrh4c4t", "type": "custom", "name": "Jesus We Love You", "bars": 8, "note": ""}, {"id": "j78hsmk", "type": "custom", "name": "Міст", "bars": 8, "note": ""}, {"id": "tf259gu", "type": "custom", "name": "Приспів 2", "bars": 8, "note": ""}, {"id": "6mslfnx", "type": "custom", "name": "High King of Heaven", "bars": 8, "note": ""}, {"id": "gw7nr4q", "type": "verse", "name": null, "bars": 16, "note": "проводки на акустіці, електро - перебор"}, {"id": "9yo4unq", "type": "verse", "name": null, "bars": 16, "note": "проводки на акустіці, електро - перебор"}, {"id": "bcpf5dg", "type": "chorus", "name": null, "bars": 16, "note": ""}, {"id": "noudr0i", "type": "verse", "name": null, "bars": 16, "note": "проводки на акустіці, електро - перебор"}, {"id": "qcdqjam", "type": "chorus", "name": null, "bars": 16, "note": ""}, {"id": "sbu4hte", "type": "outro", "name": null, "bars": 8, "note": ""}], "id": "sxbrqk2", "rows": [{"id": "b6271po", "inst": "vox-choir", "on": {"j78hsmk": 1, "tf259gu": 1, "bcpf5dg": 1, "qcdqjam": 1}}, {"id": "2zbu81f", "inst": "k-piano", "on": {"tf259gu": 1, "bcpf5dg": 1, "qcdqjam": 1, "sbu4hte": 1, "noudr0i": 1}}, {"id": "8wskd9w", "inst": "vox-lead", "on": {"gw7nr4q": 1, "9yo4unq": 1, "bcpf5dg": 1, "noudr0i": 1, "qcdqjam": 1}}, {"id": "q7pj3fw", "inst": "g-ac", "on": {"gw7nr4q": 1, "9yo4unq": 1, "bcpf5dg": 1, "noudr0i": 1, "qcdqjam": 1}}, {"id": "r1zxg6o", "inst": "g-el", "on": {"gw7nr4q": 1, "9yo4unq": 1, "bcpf5dg": 1, "tf259gu": 1, "noudr0i": 1, "qcdqjam": 1, "sbu4hte": 1}}, {"id": "zu0w9y0", "inst": "r-perc", "on": {"noudr0i": 1, "qcdqjam": 1}}, {"id": "7u5pg1q", "inst": "r-bass", "on": {"noudr0i": 1, "qcdqjam": 1}}]}, {"title": "Here Comes Heaven", "lead": "Аліса", "key": "", "bpm": "150", "sig": "3/4", "notes": "Тональність ще не визначена (у CRM — A)", "sections": [{"id": "ne22osb", "type": "verse", "name": null, "bars": "", "note": ""}, {"id": "jt5jon5", "type": "chorus", "name": null, "bars": "", "note": ""}, {"id": "ezwqapw", "type": "verse", "name": null, "bars": "", "note": ""}, {"id": "iykilon", "type": "chorus", "name": null, "bars": "", "note": ""}, {"id": "skjqreq", "type": "bridge", "name": null, "bars": "", "note": ""}, {"id": "tacdc7y", "type": "verse", "name": null, "bars": "", "note": ""}, {"id": "f2fgtw5", "type": "inst", "name": null, "bars": 8, "note": ""}], "id": "2n79nmr", "rows": [{"id": "1hdy6jq", "inst": "k-piano", "on": {"ne22osb": 1, "jt5jon5": 1, "ezwqapw": 1, "iykilon": 1, "skjqreq": 1, "tacdc7y": 1, "f2fgtw5": 1}}, {"id": "292vvfm", "inst": "vox-lead", "on": {"ne22osb": 1, "jt5jon5": 1, "ezwqapw": 1, "iykilon": 1, "skjqreq": 1, "tacdc7y": 1}}, {"id": "avh5gd1", "inst": "vox-choir", "on": {"ne22osb": 1, "jt5jon5": 1, "iykilon": 1, "skjqreq": 1, "tacdc7y": 1}}, {"id": "2yewpoc", "inst": "g-ac", "on": {"jt5jon5": 1, "iykilon": 1, "skjqreq": 1}}, {"id": "w881v3e", "inst": "g-el", "on": {"ezwqapw": 1, "iykilon": 1, "skjqreq": 1}}, {"id": "1jn879s", "inst": "r-perc", "on": {"ezwqapw": 1, "iykilon": 1, "skjqreq": 1}}, {"id": "8pdtdjd", "inst": "o-cello", "on": {"ezwqapw": 1, "skjqreq": 1, "iykilon": 1, "tacdc7y": 1, "f2fgtw5": 1}}, {"id": "irrht2d", "inst": "r-bass", "on": {"iykilon": 1, "skjqreq": 1}}]}, {"title": "Worth The Wait", "lead": "Орест", "key": "", "bpm": "144", "sig": "4/4", "notes": "Тональність ще не визначена (у CRM — G)", "sections": [{"id": "qppqvo0", "type": "intro", "name": null, "bars": 2, "note": ""}, {"id": "xm6i1y0", "type": "chorus", "name": null, "bars": "", "note": ""}, {"id": "fntig81", "type": "inst", "name": "«Різдво! Різдво!»", "bars": 4, "note": ""}, {"id": "sano3lb", "type": "chorus", "name": null, "bars": "", "note": ""}, {"id": "e3old49", "type": "inst", "name": "«Різдво! Різдво!»", "bars": 4, "note": ""}, {"id": "aspadwt", "type": "bridge", "name": null, "bars": 8, "note": ""}, {"id": "7syba22", "type": "bridge", "name": null, "bars": 8, "note": ""}, {"id": "liyku27", "type": "bridge", "name": null, "bars": 8, "note": ""}, {"id": "bmtn8pn", "type": "chorus", "name": null, "bars": "", "note": ""}, {"id": "eayx0z2", "type": "outro", "name": null, "bars": 8, "note": ""}], "id": "wacv9fk", "rows": [{"id": "rerei4b", "inst": "g-ac", "on": {"qppqvo0": 1, "xm6i1y0": 1, "fntig81": 1, "sano3lb": 1, "bmtn8pn": 1}}, {"id": "3svxm0p", "inst": "vox-lead", "on": {"xm6i1y0": 1, "sano3lb": 1, "aspadwt": 1, "7syba22": 1, "liyku27": 1, "bmtn8pn": 1}}, {"id": "hra89mv", "inst": "vox-choir", "on": {"fntig81": 1, "liyku27": 1, "bmtn8pn": 1}}, {"id": "o9d2qn1", "inst": "k-piano", "on": {"sano3lb": 1, "e3old49": 1, "aspadwt": 1, "7syba22": 1, "liyku27": 1, "bmtn8pn": 1}}, {"id": "c3s14bj", "inst": "c-wagzrqa", "on": {"e3old49": 1, "aspadwt": 1, "7syba22": 1, "liyku27": 1, "eayx0z2": 1}}, {"id": "kd4768n", "inst": "g-el", "on": {"aspadwt": 1, "7syba22": 1, "liyku27": 1, "bmtn8pn": 1, "eayx0z2": 1}}, {"id": "7pvugt2", "inst": "r-bass", "on": {"7syba22": 1, "liyku27": 1, "bmtn8pn": 1}}, {"id": "fr7gx76", "inst": "r-cajon", "on": {"7syba22": 1, "liyku27": 1, "bmtn8pn": 1}}]}, {"title": "Christmas Day", "lead": "Джозеф", "key": "", "bpm": "", "sig": "", "notes": "У CRM пісні немає. Структура з PraiseCharts (оригінал Chris Tomlin: Bb, 6/8, повільно) — уточнити", "sections": [{"id": "ql61q3l", "type": "intro", "name": null, "bars": 8, "note": ""}, {"id": "5eynqny", "type": "verse", "name": null, "bars": "", "note": ""}, {"id": "kht4ud7", "type": "verse", "name": null, "bars": "", "note": ""}, {"id": "vfca447", "type": "chorus", "name": null, "bars": "", "note": ""}, {"id": "jz1z2tf", "type": "inst", "name": null, "bars": 4, "note": ""}, {"id": "jobtm1e", "type": "verse", "name": null, "bars": "", "note": ""}, {"id": "25rq1hk", "type": "chorus", "name": null, "bars": "", "note": ""}, {"id": "plsqp49", "type": "inst", "name": null, "bars": 4, "note": ""}, {"id": "w2u1qii", "type": "bridge", "name": null, "bars": "", "note": ""}, {"id": "cdpdp5t", "type": "chorus", "name": null, "bars": "", "note": ""}, {"id": "3zm708t", "type": "chorus", "name": null, "bars": "", "note": ""}], "id": "n56zap9", "rows": [{"id": "1qiz102", "inst": "k-piano", "on": {"ql61q3l": 1, "5eynqny": 1, "kht4ud7": 1, "jz1z2tf": 1, "jobtm1e": 1, "25rq1hk": 1, "plsqp49": 1, "w2u1qii": 1, "cdpdp5t": 1, "3zm708t": 1}}, {"id": "enspnfj", "inst": "o-cello", "on": {"ql61q3l": 1, "vfca447": 1, "jz1z2tf": 1, "jobtm1e": 1, "25rq1hk": 1, "plsqp49": 1, "w2u1qii": 1, "3zm708t": 1}}, {"id": "pf3qz8w", "inst": "c-wagzrqa", "on": {"ql61q3l": 1}}, {"id": "1cb6sit", "inst": "r-perc", "on": {"kht4ud7": 1, "vfca447": 1, "jz1z2tf": 1, "jobtm1e": 1, "25rq1hk": 1, "w2u1qii": 1, "plsqp49": 1, "3zm708t": 1}}, {"id": "sw492i3", "inst": "vox-choir", "on": {"vfca447": 1, "25rq1hk": 1, "w2u1qii": 1, "3zm708t": 1}}, {"id": "n22j9ar", "inst": "vox-lead", "on": {"5eynqny": 1, "kht4ud7": 1, "vfca447": 1, "jobtm1e": 1, "25rq1hk": 1, "w2u1qii": 1, "cdpdp5t": 1, "3zm708t": 1}}, {"id": "cadapyk", "inst": "g-ac", "on": {"vfca447": 1, "jz1z2tf": 1, "jobtm1e": 1, "25rq1hk": 1, "plsqp49": 1, "w2u1qii": 1, "3zm708t": 1}}, {"id": "c9nh16p", "inst": "r-bass", "on": {"vfca447": 1, "jz1z2tf": 1, "25rq1hk": 1, "plsqp49": 1, "w2u1qii": 1, "cdpdp5t": 1, "3zm708t": 1}}]}]}</script>
+<script>
+(function(){
+"use strict";
+var D=JSON.parse(document.getElementById("data").textContent);
+var NOTE_KEY="xmas-live-notes";
+var ICONS={
+ star:'<path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/>',
+ mic:'<rect x="9" y="2.5" width="6" height="11.5" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3.5M8.5 21.5h7"/>',
+ micvocal:'<circle cx="16" cy="8" r="5"/><path d="m12.4 11.6-8.6 8.6a1.4 1.4 0 0 0 0 2 1.4 1.4 0 0 0 2 0l8.6-8.6M13 5l6 6"/>',
+ choir:'<circle cx="12" cy="7" r="3"/><circle cx="4.8" cy="9.5" r="2.2"/><circle cx="19.2" cy="9.5" r="2.2"/><path d="M6.5 20a5.5 5.5 0 0 1 11 0M1.5 19.5a3.5 3.5 0 0 1 5-3.2M22.5 19.5a3.5 3.5 0 0 0-5-3.2"/>',
+ duet:'<circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3 20a6 6 0 0 1 12 0M15.5 14.4A5 5 0 0 1 21.5 19.5"/>',
+ piano:'<rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M7.5 19v-5M12 19v-5M16.5 19v-5M6.3 5v9h2.4V5M10.8 5v9h2.4V5M15.3 5v9h2.4V5"/>',
+ pad:'<path d="M2 12h3l2.2-6 3.3 12 3.2-9 2.1 6 1.7-3H22"/>',
+ organ:'<path d="M2 21h20M4.5 21v-9M8.5 21V7.5M12 21V3.5M15.5 21V7.5M19.5 21v-9"/><path d="M3.5 12h2M7.5 7.5h2M11 3.5h2M14.5 7.5h2M18.5 12h2"/>',
+ rhodes:'<rect x="2" y="6.5" width="20" height="8" rx="1.5"/><path d="M6 6.5v4.5M10 6.5v4.5M14 6.5v4.5M18 6.5v4.5M6 14.5 4 21M18 14.5l2 6.5"/>',
+ acoustic:'<path d="m14 10 6.5-6.5M18.5 1.5l4 4"/><path d="M11.5 8.5c-1.5-1.5-4-1.5-5.5 0-.8.8-1 2-1.6 2.6C3.3 12.2 2 13 2 15c0 3.9 3.1 7 7 7 2 0 2.8-1.3 3.9-2.4.6-.6 1.8-.8 2.6-1.6 1.5-1.5 1.5-4 0-5.5z"/><circle cx="9.5" cy="14.5" r="1.8"/>',
+ electric:'<path d="m12.5 11.5 8-8M19 2l3 3"/><path d="M9.5 9 8 5.5 6 9c-2.2.3-4 2.2-4 4.5l3 1.5-1.5 3 2.5 2.5 3-1.5 1.5 3c2.3 0 4.2-1.8 4.5-4L11 12.5z"/><path d="m7.5 14 2.5 2.5"/>',
+ bass:'<path d="m11 13 10.5-10.5M20 1l3 3"/><path d="M8.5 11.5 7.5 8 5 10.5c-2 .4-3 2-3 4l2.5 1.5-1.5 2.8L5.2 21l2.7-1.5 1.6 2.5c2 0 3.6-1 4-3l2.5-1-3.5-3.5z"/>',
+ drums:'<ellipse cx="12" cy="10" rx="9" ry="3.5"/><path d="M3 10v6.5c0 1.9 4 3.5 9 3.5s9-1.6 9-3.5V10M7 13.2v6.3M17 13.2v6.3M12 13.5V20M16.5 2 12 9M7.5 2 12 9"/>',
+ cajon:'<rect x="5" y="2.5" width="14" height="19" rx="1.5"/><circle cx="12" cy="9" r="2.6"/><path d="M8.5 17h7"/>',
+ perc:'<circle cx="9" cy="9" r="6"/><path d="m13.3 13.3 7.7 7.7M7 7h.01M10.5 8.5h.01M7.5 11h.01"/>',
+ bells:'<path d="M6 8.5a6 6 0 0 1 12 0c0 7 3 8.5 3 8.5H3s3-1.5 3-8.5"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/>',
+ violin:'<path d="M12 1.5V8M10 1.5h4M9 8h6c0 1.6-1.2 2-1.2 3s2.7 1.5 2.7 4.5c0 3.6-2.3 6.5-4.5 6.5s-4.5-2.9-4.5-6.5c0-3 2.7-3.5 2.7-4.5S9 9.6 9 8z"/><path d="M10.8 15h.01M13.2 15h.01M12 17.5v2"/>',
+ cello:'<path d="M12 1v5.5M8.5 6.5h7c0 2-1.8 2.4-1.8 3.6s3.6 2 3.6 5.6c0 3.4-2.6 5-5.3 5s-5.3-1.6-5.3-5c0-3.6 3.6-4.4 3.6-5.6S8.5 8.5 8.5 6.5z"/><path d="M12 21.7V23M10.7 14.5h.01M13.3 14.5h.01"/>',
+ flute:'<path d="M3.2 20.8 20.8 3.2M4.6 22.2 22.2 4.6M2.5 20.1l2 2M19.9 2.5l2 2"/><path d="M9 16h.01M12 13h.01M15 10h.01"/>',
+ note:'<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>',
+ tempo:'<path d="M7.5 21h9L13.5 3h-3z"/><path d="m12 16 6.5-9.5M9 15h3"/>',
+ sig:'<path d="M4 6h16M4 10h16M4 14h16M4 18h16"/>',
+ info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5h.01"/>',
+ pencil:'<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>',
+ left:'<path d="m15 18-6-6 6-6"/>',
+ right:'<path d="m9 18 6-6-6-6"/>',
+ play:'<path d="M7 4v16l13-8z"/>',
+ verse:'<path d="M4 6h16M4 10h16M4 14h12M4 18h9"/>',
+ rise:'<path d="m3 17 6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
+ repeat:'<path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/>',
+ bridge:'<path d="M2 18h20M4 18v-7M20 18v-7M2 11h20"/><path d="M4 11c3-5.5 13-5.5 16 0M9 7.6V11M15 7.6V11"/>',
+ tag:'<path d="M12 2H2v10l9.3 9.3a2.4 2.4 0 0 0 3.4 0l6.6-6.6a2.4 2.4 0 0 0 0-3.4z"/><circle cx="7" cy="7" r="1.5"/>',
+ flag:'<path d="M4 22V3.5M4 4h13l-2.5 4.5L17 13H4"/>',
+ shapes:'<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M12 8v8M8 12h8"/>'
+};
+function ic(n,sz){return '<svg class="ic" width="'+(sz||16)+'" height="'+(sz||16)+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(ICONS[n]||ICONS.note)+'</svg>'}
+var INST={};
+[["vox-lead","Лід-вокал","#b8463c","mic"],["vox-back","Бек-вокал","#d07462","micvocal"],["vox-choir","Міні-хор","#9c3a5c","choir"],["vox-duet","Дует","#c4648a","duet"],
+ ["k-piano","Піаніно","#b7812a","piano"],["k-pad","Пад / синт","#cfa04c","pad"],["k-organ","Орган","#9a6620","organ"],["k-rhodes","Rhodes","#c18f5a","rhodes"],
+ ["g-ac","Акустична гітара","#b4652f","acoustic"],["g-el","Електрогітара","#874424","electric"],
+ ["r-bass","Бас","#2d5c84","bass"],["r-drums","Барабани","#3f71a0","drums"],["r-cajon","Кахон","#5a86b0","cajon"],["r-perc","Перкусія","#467a8e","perc"],["r-bells","Дзвіночки","#7192bb","bells"],
+ ["o-violin","Скрипка","#2f7a5c","violin"],["o-cello","Віолончель","#225e48","cello"],["o-flute","Флейта","#5c9b7b","flute"]
+].forEach(function(a,i){INST[a[0]]={name:a[1],color:a[2],icon:a[3],o:i}});
+(D.custom||[]).forEach(function(c,i){INST[c.id]={name:c.name,color:c.color,icon:c.icon||"note",o:100+i}});
+var SEC={intro:{l:"Вступ",c:"#8b8f86",i:"play"},verse:{l:"Куплет",c:"#4f7896",i:"verse"},pre:{l:"Пре-приспів",c:"#7c6aa6",i:"rise"},chorus:{l:"Приспів",c:"#b04a3e",i:"repeat"},bridge:{l:"Брідж",c:"#c2922c",i:"bridge"},inst:{l:"Програш",c:"#3d8466",i:"note"},tag:{l:"Тег",c:"#9a6b8a",i:"tag"},outro:{l:"Кінцівка",c:"#6b5d4f",i:"flag"},custom:{l:"Частина",c:"#5e6a70",i:"shapes"}};
+
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function secLabel(sg,sec){if(sec.name)return sec.name;var t=SEC[sec.type]||SEC.custom;var same=sg.sections.filter(function(x){return x.type===sec.type});return same.length>1?t.l+" "+(same.indexOf(sec)+1):t.l}
+function bars(n){n=+n;if(!n)return "";var m=n%10,h=n%100;var w=(m===1&&h!==11)?"такт":(m>=2&&m<=4&&(h<12||h>14))?"такти":"тактів";return n+" "+w}
+
+var notes={};try{notes=JSON.parse(localStorage.getItem(NOTE_KEY)||"{}")||{}}catch(e){}
+function saveNotes(){try{localStorage.setItem(NOTE_KEY,JSON.stringify(notes))}catch(e){}}
+function nk(sg,sec){return sg.id+":"+sec.id}
+function songHasNotes(sg){return sg.sections.some(function(s){return (notes[nk(sg,s)]||"").trim()})}
+
+var songs=D.songs||[];
+var cur=(function(){var h=decodeURIComponent(location.hash.slice(1));var i=songs.findIndex(function(s){return s.id===h});if(i<0){try{i=songs.findIndex(function(s){return s.id===localStorage.getItem("xmas-live-song")})}catch(e){}}return i<0?0:i})();
+
+document.getElementById("album").innerHTML=ic("star",20)+esc(D.album||"");
+document.title=(D.album||"Регламент");
+
+function renderTabs(){
+ document.getElementById("tabs").innerHTML=songs.map(function(sg,i){
+  return '<button class="tab'+(i===cur?' on':'')+'" data-i="'+i+'"><span class="n">'+(i+1)+'</span><span><span class="t">'+esc(sg.title)+'</span>'+(sg.lead?'<br><span class="l">'+esc(sg.lead)+'</span>':'')+'</span>'+(songHasNotes(sg)?'<span class="dot" title="Є ваші нотатки"></span>':'')+'</button>';
+ }).join("");
+ var on=document.querySelector(".tab.on"),bar=document.getElementById("tabs");if(on){var l=on.offsetLeft-16,r=on.offsetLeft+on.offsetWidth+16;if(l<bar.scrollLeft)bar.scrollLeft=l;else if(r>bar.scrollLeft+bar.clientWidth)bar.scrollLeft=r-bar.clientWidth}
+}
+
+function render(){
+ var sg=songs[cur];if(!sg){document.getElementById("main").innerHTML="";return}
+ renderTabs();
+ var h='<h1 class="song-title">'+esc(sg.title)+'</h1><div class="meta">';
+ if(sg.lead)h+='<span class="pill">'+ic("mic",15)+esc(sg.lead)+'</span>';
+ h+=sg.key?'<span class="pill">'+ic("note",15)+esc(sg.key)+'</span>':'<span class="pill q">'+ic("note",15)+'тональність ?</span>';
+ if(sg.bpm)h+='<span class="pill">'+ic("tempo",15)+esc(sg.bpm)+' <small>BPM</small></span>';
+ if(sg.sig)h+='<span class="pill">'+ic("sig",15)+esc(sg.sig)+'</span>';
+ h+='</div>';
+ if(sg.notes)h+='<div class="callout">'+ic("info",16)+'<div>'+esc(sg.notes)+'</div></div>';
+ var tot=sg.sections.reduce(function(a,s){return a+(+s.bars||8)},0)||1;
+ h+='<div class="strip">'+sg.sections.map(function(s){var t=SEC[s.type]||SEC.custom;return '<button style="flex:'+(+s.bars||8)+';background:'+t.c+'" data-go="'+s.id+'" title="'+esc(secLabel(sg,s))+'" aria-label="'+esc(secLabel(sg,s))+'"></button>'}).join("")+'</div>';
+ var rows=(sg.rows||[]).filter(function(r){return INST[r.inst]}).sort(function(a,b){return INST[a.inst].o-INST[b.inst].o});
+ if(rows.length)h+='<div class="legend"><span><i style="background:var(--green)"></i>вступає</span><span><i style="background:color-mix(in srgb,var(--green) 14%,transparent)"></i>грає далі</span><span><i style="border:1px dashed var(--faint)"></i>виходить</span></div>';
+ h+='<ol class="secs">';
+ sg.sections.forEach(function(s,i){
+  var t=SEC[s.type]||SEC.custom, prev=sg.sections[i-1], k=nk(sg,s), nt=notes[k]||"";
+  var playing=rows.filter(function(r){return r.on&&r.on[s.id]&&INST[r.inst]});
+  var gone=prev?rows.filter(function(r){return r.on&&r.on[prev.id]&&!r.on[s.id]&&INST[r.inst]}):[];
+  h+='<li class="sec'+(nt.trim()?' hasnote':'')+'" id="s-'+s.id+'" style="--c:'+t.c+'"><div class="sec-head"><span class="num">'+(i+1)+'</span><span class="badge">'+ic(t.i,17)+'</span><div class="sec-main"><div class="sec-name">'+esc(secLabel(sg,s))+'</div>'+(s.note?'<div class="sec-chords">'+esc(s.note)+'</div>':'')+'</div>'+(bars(s.bars)?'<span class="bars">'+bars(s.bars)+'</span>':'')+'<button class="note-btn'+(nt.trim()?' has':'')+'" data-note="'+s.id+'" title="Моя нотатка" aria-label="Моя нотатка">'+ic("pencil",17)+'</button></div>';
+  if(playing.length||gone.length){
+   h+='<div class="insts">'+playing.map(function(r){var m=INST[r.inst],isNew=i>0&&!(prev&&r.on[prev.id]);return '<span class="chip'+(isNew?' in':'')+'" style="--ic:'+m.color+'" title="'+(isNew?'Вступає':'Грає')+'">'+ic(m.icon,13)+esc(m.name)+'</span>'}).join("")+gone.map(function(r){var m=INST[r.inst];return '<span class="chip out" style="--ic:'+m.color+'" title="Виходить">'+ic(m.icon,13)+esc(m.name)+'</span>'}).join("")+'</div>';
+  }
+  h+='<div class="mynote"><label>'+ic("pencil",12)+'Моя нотатка<span class="saved">збережено</span></label><textarea rows="1" data-k="'+esc(k)+'" placeholder="Що мені тут важливо не забути…">'+esc(nt)+'</textarea></div></li>';
+ });
+ h+='</ol>';
+ var p=songs[cur-1],n=songs[cur+1];
+ if(p||n)h+='<div class="next">'+(p?'<button data-i="'+(cur-1)+'">'+ic("left",16)+'<span><small>Попередня</small>'+esc(p.title)+'</span></button>':'<i></i>')+(n?'<button class="r" data-i="'+(cur+1)+'"><span><small>Наступна</small>'+esc(n.title)+'</span>'+ic("right",16)+'</button>':'')+'</div>';
+ h+='<div class="foot">Нотатки бачите тільки ви — вони зберігаються в цьому браузері.</div>';
+ document.getElementById("main").innerHTML=h;
+ document.querySelectorAll("textarea").forEach(grow);
+}
+function grow(t){t.style.height="auto";t.style.height=t.scrollHeight+"px"}
+function go(i){if(i<0||i>=songs.length)return;cur=i;try{localStorage.setItem("xmas-live-song",songs[i].id)}catch(e){}history.replaceState(null,"","#"+songs[i].id);render();window.scrollTo({top:0})}
+
+document.addEventListener("click",function(e){
+ var b=e.target.closest("[data-i]");if(b){go(+b.dataset.i);return}
+ var g=e.target.closest("[data-go]");if(g){var el=document.getElementById("s-"+g.dataset.go);if(el)el.scrollIntoView({behavior:"smooth",block:"start"});return}
+ var nb=e.target.closest("[data-note]");if(nb){var li=nb.closest(".sec");li.classList.add("open");var ta=li.querySelector("textarea");grow(ta);ta.focus();return}
+});
+var timers={};
+document.addEventListener("input",function(e){
+ var t=e.target;if(t.tagName!=="TEXTAREA")return;grow(t);
+ var k=t.dataset.k;if(t.value.trim())notes[k]=t.value;else delete notes[k];saveNotes();
+ var li=t.closest(".sec");li.classList.toggle("hasnote",!!t.value.trim());li.querySelector(".note-btn").classList.toggle("has",!!t.value.trim());
+ var sv=li.querySelector(".saved");sv.classList.add("show");clearTimeout(timers[k]);timers[k]=setTimeout(function(){sv.classList.remove("show")},1200);
+});
+document.addEventListener("focusout",function(e){var t=e.target;if(t.tagName==="TEXTAREA"&&!t.value.trim()){var li=t.closest(".sec");li.classList.remove("open");renderTabs()}else if(t.tagName==="TEXTAREA")renderTabs()});
+window.addEventListener("hashchange",function(){var i=songs.findIndex(function(s){return s.id===decodeURIComponent(location.hash.slice(1))});if(i>=0&&i!==cur){cur=i;render()}});
+render();
+})();
+</script>
+</body>
+</html>
